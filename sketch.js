@@ -65,6 +65,7 @@ function GenerateVehicles() {
 function RenderFrog() {
   frog.show();
   frog.edges();
+  frog.collide(vehicles);
 }
 
 function DrawGameSpace() {

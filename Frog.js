@@ -1,11 +1,12 @@
 function Frog() {
   this.x = width/2;
   this.y = height - scl / 2;
+  this.r = 25;
   this.col = color(0, 120, 0);
 
   this.show = function() {
     fill(this.col);
-    ellipse(this.x, this.y, 25);
+    ellipse(this.x, this.y, this.r);
   }
 
   this.update = function(dir) {
@@ -34,6 +35,16 @@ function Frog() {
 
     if (this.y < 0 || this.y > height) {
       return undefined;
+    }
+  }
+
+  this.collide = function(obstacles) {
+    for (var i = 0; i < obstacles.length; i++) {
+      var d = dist(this.x, this.y, obstacles[i].x, obstacles[i].y);
+
+      if (d < this.r) {
+        console.log("collided");
+      }
     }
   }
 }

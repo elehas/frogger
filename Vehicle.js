@@ -9,7 +9,7 @@ function Vehicle(row, j) {
     var offset = scl;
     fill(255);
 
-    rect(this.x*scl, this.y*scl, scl*this.size, scl);
+    rect(this.x*scl, this.y*scl+12, scl*this.size, scl*0.6);
   }
 
   this.update = function() {
