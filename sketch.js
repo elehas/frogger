@@ -14,6 +14,9 @@ var frog;
 //Our vehicles on the highway
 var vehicles = [];
 
+//Our obstacles in the river
+var logs = [];
+
 function setup() {
   createCanvas(800, 800);
   noStroke();
@@ -38,6 +41,14 @@ function setup() {
     }
   }
 
+  for (var i = 0; i < river.length; i++) {
+    var row = river[i];
+    for (var j = 0; j < grid[i].length; j++) {
+      logs.push(new Log(row, j));
+      j += floor(random(2, 6));
+    }
+  }
+  console.log(logs);
   frog = new Frog();
 }
 
@@ -48,9 +59,18 @@ function draw() {
   DrawZones();
 
   GenerateVehicles();
+  GenerateLogs();
 
   RenderFrog();
 
+}
+
+function GenerateLogs() {
+  for (var i = 0; i < logs.length; i++) {
+    logs[i].show();
+    logs[i].update();
+    logs[i].edges();
+  }
 }
 
 function GenerateVehicles() {

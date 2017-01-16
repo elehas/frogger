@@ -1,14 +1,19 @@
-function Vehicle(row, j) {
+function Log(row, j) {
   this.x = j;
   this.y = row;
-  this.size = 1;
-  this.dir;
+  this.dir = 1;
   this.speed = 0.02;
+  this.size = 1;
+  this.r = 40;
 
   this.show = function() {
-    fill(255);
-
-    rect(this.x*scl, this.y*scl+12, scl*this.size, scl*0.6);
+    if (this.y == 2 || this.y == 5) {
+      fill(0, 170, 0);
+      ellipse(this.x * scl, (this.y * scl) + (scl / 2), this.r);
+    } else {
+      fill("brown");
+      rect(this.x * scl, this.y * scl + 12, scl * this.size, scl * 0.6);
+    }
   }
 
   this.update = function() {
@@ -18,17 +23,15 @@ function Vehicle(row, j) {
       this.dir = 1;
     }
 
-    if (this.y == 8) {
-      this.speed = 0.05;
+    if (this.y == 3) {
+      this.size = 3;
     }
 
-    if (this.y == 11) {
-      this.speed = 0.03;
-    }
-
-    if (this.y == 7) {
+    if (this.y == 4) {
       this.size = 2;
+      this.speed = 0.04;
     }
+
     this.x += this.speed * this.dir;
   }
 
@@ -41,7 +44,12 @@ function Vehicle(row, j) {
       if (this.x < -2) {
         this.x = 13;
       }
+    } else if (this.size == 3) {
+      if (this.x < -3) {
+        this.x = 13;
+      }
     }
+
     if (this.x > 13) {
       this.x = -1;
     }
