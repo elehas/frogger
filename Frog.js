@@ -14,13 +14,13 @@ function Frog() {
         this.y -= scl;
         break;
       case "right":
-        this.x += scl;
+        this.x += scl/2;
         break;
       case "down":
         this.y += scl;
         break;
       case "left":
-        this.x -= scl;
+        this.x -= scl/2;
         break;
       default:
         break;

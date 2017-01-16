@@ -3,7 +3,7 @@ function Vehicle(row, j) {
   this.y = row;
   this.size = 1;
   this.dir;
-  this.speed = 0.01;
+  this.speed = 0.02;
 
   this.show = function() {
     var offset = scl;
@@ -21,6 +21,10 @@ function Vehicle(row, j) {
 
     if (this.y == 8) {
       this.speed = 0.05;
+    }
+
+    if (this.y == 11) {
+      this.speed = 0.03;
     }
 
     if (this.y == 7) {
