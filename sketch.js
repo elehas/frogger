@@ -48,7 +48,7 @@ function setup() {
       j += floor(random(2, 6));
     }
   }
-  console.log(logs);
+  
   frog = new Frog();
 }
 
